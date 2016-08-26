@@ -1,0 +1,28 @@
+创建一个 git 仓库
+git init
+
+用 git 去查看当前目录的文件状态
+git status
+
+添加一个文件到 git 仓库里
+git add 文件名
+git add -A 添加当前目录下所有文件
+
+设置自己的邮箱和用户名
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git config -l // 查看 git 全局设置
+
+提交文件到 git 仓库里面
+git commit -m '注释内容'
+
+查看 commit 日志
+git log
+
+查看修改文件 和 git 仓库文件不同
+git diff 文件名
+
+这里是一个修改
+
+
+
