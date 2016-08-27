@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>socket 客户端</title>
+</head>
+<body>
+
+  <h1>聊天</h1>
+  <div id="chatContent"></div>
+  <form action="" onsubmit="return sendMsg()">
+    <input type="text" required id="msg" placeholder="请输入聊天内容">
+    <input type="submit" value="发送">
+  </form>
+  <script>
+    var socket = new WebSocket("ws://110.0.1.109:3000");
+    socket.onopen = function () {
+      console.log('开启 socket 连接');
+    }
+    socket.onclose = function () {
+      console.log('关闭 socket 连接');
+      alert('socket 关闭了。。。')
+    }
+
+    socket.onmessage = function (event) {
+      var chatContent = document.getElementById('chatContent');
+      chatContent.innerHTML += '<p>' + event.data +'</p>';
+    }
+
+    function sendMsg() {
+      var msgEle = document.getElementById('msg');
+      var msg = msgEle.value
+      msgEle.value = ''
+      socket.send(msg);
+      return false;
+    }
+    // socket.send('你好啊')
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# v1 - 2011-08-13
+# 需要缓存的文件
+/webstorage.html
+/database2.html
+/offline.html
+
+NETWORK:
+# 不需要缓存的
+/database1.html
+
+FALLBACK:
+# 访问缓存失败后，备用访问的资源，第一个是访问源，第二个是替换文件*.html /offline.html
+*.html /offline.html
