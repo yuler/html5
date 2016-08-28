@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todos</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+    <ul>
+      <li v-for="todo in todos">{{ todo }} <button @click="removeTodo($index)">X</button></li>
+    </ul>
+  </div>
+  <script src="./../assets/js/vue.js"></script>
+  <script>
+    var vue = new Vue({
+      el: '#app',
+      data: {
+        newTodo: '',
+        todos: []
+      },
+      methods: {
+        addTodo: function () {
+          this.todos.push(this.newTodo)
+          this.newTodo = ''
+        },
+        removeTodo: function (index) {
+          this.todos.splice(index, 1)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

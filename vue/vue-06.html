@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="demo">
+		<p v-if="show">你好</p>
+		<button @click="toggle">显示/隐藏</button>
+	</div>
+	
+	<script src="./../assets/js/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#demo',
+			data: {
+				show: true
+			},
+			methods: {
+				toggle: function () {
+					this.show = !this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>

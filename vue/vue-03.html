@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="demo">
+		<ul>
+			<li v-for="note in notes">{{ note }}</li>
+		</ul>
+	</div>
+	
+	<script src="./../assets/js/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#demo',
+			data: {
+				notes: ['你好', '我好', '他好']
+			}
+		})
+	</script>
+</body>
+</html>

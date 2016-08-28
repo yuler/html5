@@ -5,18 +5,30 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="demo">
-    <p>{{ message }}</p>
-  </div>
+  <form action="" id="demo" onsubmit="return save()">
+    <input type="text" v-model="user.name" required placeholder="name">
+    <input type="text" v-model="user.age" required  placeholder="age">
+    <input type="text" v-model="user.sex" required  placeholder="sex">
+    <input type="text" v-model="user.password" required  placeholder="password">
+    <input type="submit" value="提交">
+  </form>
   
   <script src="./../assets/js/vue.js"></script>
   <script>
     var vm = new Vue({
       el: '#demo',
       data: {
-        message: 'Hello World!'
+        user: {
+
+        }
       }
     })
+
+    function save() {
+      var user = vm.user
+      console.log(user)
+      return false
+    }
   </script>
 </body>
 </html>
