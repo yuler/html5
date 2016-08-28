@@ -1,0 +1,15 @@
+.button-red {
+  color: #f00;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+.button-green {
+  color: #008000;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+div {
+  padding-top: 70px;
+}

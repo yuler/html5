@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频只读属性演示</title>
+</head>
+<body>
+	<video id="video" controls>
+		<source src="http://www.happy-yu.com/demo/xx.mp4">
+	</video>
+
+	<script>
+		window.onload = function () {
+			var video = document.getElementById('video');
+
+			console.log(video.duration)  // 获取视频长度 单位 s
+			console.log(video.paused)   // 是否暂停
+			console.log(video.ended)    // 是否结束
+			console.log(video.err)			// 返回错误代码
+			console.log(video.currentSrc)  // 视频文件地址
+		}
+		
+	</script>
+</body>
+</html>

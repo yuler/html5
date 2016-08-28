@@ -1,0 +1,1 @@
+var WebSocketServer=require("ws").Server,wss=new WebSocketServer({port:3e3});wss.broadcast=function(e){wss.clients.forEach(function(s){s.send(e)})},wss.on("connection",function(e){e.on("message",function(e){console.log("received: %s",e),wss.broadcast(e)})});

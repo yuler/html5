@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src="./assets/js/handlebars-v4.0.5.js"></script>
+	
+	<script id="entry-template" type="text/x-handlebars-template">
+	  <div class="entry">
+	    <h1>{{title}}</h1>
+	    <div class="body">
+	      {{body}}
+	    </div>
+	  </div>
+	</script>
+
+	<script>
+		var source   = $("#entry-template").html();
+		var template = Handlebars.compile(source);
+		var html = template({
+			title: '你好',
+			body: '内容'
+		})
+		console.log(html);
+	</script>
+</body>
+</html>

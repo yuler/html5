@@ -1,0 +1,7 @@
+body {
+  background: #f00;
+}
+body .container {
+  width: 960px;
+  font-size: 20px;
+}

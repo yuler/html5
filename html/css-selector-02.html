@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.before:before {
+			content: '开始前添加文字';
+		}
+		.after:after {
+			content: '结尾处添加文字';
+		}
+		.first-letter:first-letter {
+			padding-left: 20px;
+			font-size: 20px;
+			color: red;
+		}
+		.first-line:first-line {
+			color: red;
+		}
+		.selection::selection {
+			color: gold;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p class="before">before</p>
+		<p class="after">after</p>
+		<p class="first-letter">首字母</p>
+		<p class="first-line">首行首行首行首行<br>首行首行首行首行</p>
+		<p class="selection">选中</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #content {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!--
+      http://www.tuling123.com/
+   -->
+  <h1>图灵机器人</h1>
+  <form action="" onsubmit="return sendAjax()">
+    <input type="text" placeholder="请输内容" id="content" required>
+    <br><br>
+    <input type="submit" value="确认">
+  </form>
+  <div id="result"></div>
+  <script>
+    function sendAjax() {
+      var content = document.getElementById('content').value;
+      var ajax = new XMLHttpRequest();
+      var url = 'http://www.tuling123.com/openapi/api?key=22c505143619c7e52efebc23298fc5e4&info='+ content +'&userid=07B83AB9793010E5818B00B3E73057A2';
+      ajax.open('GET', url, true); //open(方法, url, 是否异步)
+      ajax.send();
+      ajax.onreadystatechange=function(){
+        if(ajax.readyState == 4){
+          if(ajax.status == 200){
+            var data = JSON.parse(ajax.responseText)
+            document.getElementById('result').innerHTML = data.text;
+          }else{
+            console.log('失败');
+          }
+        }
+      }
+      return false;
+    }
+
+
+  </script>
+
+
+</body>
+</html>

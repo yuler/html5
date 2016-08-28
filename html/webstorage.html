@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<title>webstorage 记事本程序</title>
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">记事本</h1>
+		<p id="resultLength"></p>
+		<div id="results"></div>
+
+		<form action="" onsubmit="return saveContent()">
+			<div class="form-group">
+				<input id="content" class="form-control" placeholder="请输入笔记内容" 
+					required></input>
+				<br>
+			  <input type="submit" class="btn btn-primary" value="保存">
+			</div>
+		</form>
+	</div>
+	<script>
+		// 如果你的浏览器不支持 localStorge，就弹窗
+		if (!window.localStorage)
+		  alert('浏览器不支持 localStorage');
+
+		// 获取本地 localStorage 里面的笔记
+		function getNotes() {
+			var notes = localStorage.getItem('notes');
+			return notes ? JSON.parse(notes) : []
+		}
+		
+		// 写入笔记有多少条
+		function getLength() {
+			document.getElementById('resultLength').innerHTML = '总共有笔记' + getNotes().length +'条'
+		}
+
+		// 读取 localStorage 里面的笔记内容
+		function getContents() {
+			debugger;
+			var notes = getNotes()
+			var results = document.getElementById('results');
+			results.innerHTML = ''
+			for (var i = 0; i < notes.length; i++) {
+				results.innerHTML += '<p">' + notes[i] +'&nbsp;&nbsp;&nbsp;<button class="btn btn-danger btn-xs" onclick="removeNote(' + i +')">X</button></p>'
+			}
+		}
+
+		// 删除笔记方法
+		function removeNote(index) {
+			debugger;
+			var notes = getNotes()
+			notes.splice(index, 1)
+			localStorage.setItem('notes', JSON.stringify(notes))
+			getLength()
+			getContents()
+		}
+
+		// 保存笔记内容，并且写入到 localStorge 里
+		function saveContent() {
+			var contentEle = document.getElementById('content');
+			var notes = getNotes()
+			notes.push(contentEle.value)
+			localStorage.setItem('notes', JSON.stringify(notes))
+			contentEle.value = ''
+			getLength()
+			getContents()
+			return false
+		}
+
+		getLength()
+		getContents()
+	</script>
+</body>
+</html>
